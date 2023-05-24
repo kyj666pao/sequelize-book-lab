@@ -18,7 +18,24 @@ const index = async (req, res) => {
     }
 }
 
+const update = async (req, res) => {
+    try {
+        const { bookId } = req.params
+        console.log(bookId)
+        const book = await Book.update(
+            req.body, {
+                where: { id: bookId },
+                returning: true
+            }
+        ) 
+        res.status(200).json(book)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
 module.exports = {
     create,
     index,
+    update,
 }
