@@ -9,7 +9,16 @@ const create = async (req, res) => {
     }
 }
 
+const index = async (req, res) => {
+    try {
+        const books = await Book.findAll()
+        res.status(200).json(books)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
 module.exports = {
     create,
-
+    index,
 }
