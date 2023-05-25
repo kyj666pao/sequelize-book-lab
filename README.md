@@ -8,7 +8,7 @@ This Api performs CRUD operations on the database of books.
 
 **URL**: ```/api/books```
 
-This URL endpoint with POST method create a new book. The attributes in request body are title, author and price.
+This URL endpoint with POST method create a new book. The attributes in request body are title(String), author(String) and price(Float(10,2)).
 
 JSON object in request body:
 ```
@@ -70,7 +70,7 @@ JSON object in Response:
 
 **URL**: ```/api/books/:bookId```
 
-This URL endpoint with PUT method update an exist book. The attributes in request body are title, author and price.
+This URL endpoint with PUT method update an exist book. The attributes in request body are title(String), author(String) and price(Float(10,2))
 
 JSON object in request body:
 ```
@@ -108,5 +108,12 @@ This URL endpoint with DELETE method delete a book in the data base.
 
 JSON object in Response:
 ```
-1
+{
+    "id": 5,
+    "title": "Tiger is a cat",
+    "author": "Meow Meow",
+    "price": "16.99",
+    "createdAt": "2023-05-25T23:19:40.304Z",
+    "updatedAt": "2023-05-25T23:19:40.304Z"
+}
 ```
