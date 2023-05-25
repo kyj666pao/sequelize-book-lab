@@ -38,10 +38,12 @@ const update = async (req, res) => {
 const deleteBook = async (req, res) => {
     try {
         const { bookId } = req.params
-        const numOfRowsRemoved = await Book.destroy(
-            { where: { id: bookId }}
-        )
-        res.status(200).json(numOfRowsRemoved)
+        // const numOfRowsRemoved = await Book.destroy(
+        //     { where: { id: bookId }}
+        // )
+        const book = await Book.findByPk(bookId)
+        await book.destroy()
+        res.status(200).json(book)
     } catch (error) {
         console.log(error)
         res.status(500).json(error)
